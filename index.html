@@ -3,79 +3,196 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FarmCS</title>
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>FarmCS - Smart Farming Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <div class="container header-container">
-            <img src="images/FarmCSlogo.png" alt="FarmCS Logo" class="logo">
-            <nav>
-                <div class="menu-toggle" id="mobile-menu">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </div>
-                <ul class="nav" id="nav">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#dashboard">Dashboard</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <li><a href="login.html">Login</a></li>
-                    <li><a href="signup.html">Sign Up</a></li>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="images/FarmCSlogo.png" alt="FarmCS Logo" class="logo">
+                <h2>FarmCS</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="active">
+                        <a href="#dashboard"><i class="fas fa-home"></i> Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="#soil"><i class="fas fa-earth-americas"></i> Soil Management</a>
+                    </li>
+                    <li>
+                        <a href="#irrigation"><i class="fas fa-faucet"></i> Irrigation</a>
+                    </li>
+                    <li>
+                        <a href="#weather"><i class="fas fa-cloud-sun"></i> Weather</a>
+                    </li>
+                    <li>
+                        <a href="#reports"><i class="fas fa-chart-line"></i> Reports</a>
+                    </li>
+                    <li>
+                        <a href="#settings"><i class="fas fa-cog"></i> Settings</a>
+                    </li>
                 </ul>
             </nav>
-        </div>
-    </header>
-    <main>
-        <section id="home" class="hero">
-            <div class="hero-content">
-                <h2>Welcome to FarmCS</h2>
-                <p>Promoting sustainable farming practices for a better tomorrow.</p>
-                <button class="cta-button">Learn More</button>
-            </div>
-        </section>
-        <section id="about" class="dark-section">
-            <div class="container">
-                <h2>About Us</h2>
-                <p>FarmCS is dedicated to supporting farmers with the latest technology and best practices.</p>
-            </div>
-        </section>
-        <section id="services">
-            <div class="container">
-                <h2>Our Services</h2>
-                <div class="service-list">
-                    <div class="service-item">
-                        <h3>Consulting</h3>
-                        <p>Expert advice to help you improve your farming practices.</p>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-bar">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search...">
+                </div>
+                <div class="user-menu">
+                    <div class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
                     </div>
-                    <div class="service-item">
-                        <h3>Training</h3>
-                        <p>Workshops and courses to keep you up-to-date with the latest techniques.</p>
+                    <div class="user-profile">
+                        <img src="images/default-avatar.png" alt="User Profile">
+                        <span>Farm Manager</span>
                     </div>
-                    <div class="service-item">
-                        <h3>Technology Integration</h3>
-                        <p>Implementing modern technology to enhance productivity and sustainability.</p>
+                </div>
+            </header>
+
+            <div class="dashboard-content">
+                <!-- Alert Banner -->
+                <div class="alert-banner warning">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <span>Alert: Low soil moisture detected in Field #3 - Immediate irrigation recommended!</span>
+                    <button class="alert-action">Take Action</button>
+                </div>
+
+                <!-- Overview Cards -->
+                <div class="overview-cards">
+                    <div class="card soil-status">
+                        <div class="card-icon">
+                            <i class="fas fa-seedling"></i>
+                        </div>
+                        <div class="card-info">
+                            <h3>Soil Status</h3>
+                            <div class="soil-metrics">
+                                <div class="metric">
+                                    <span class="label">Moisture</span>
+                                    <span class="value">45%</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="label">Temperature</span>
+                                    <span class="value">24°C</span>
+                                </div>
+                                <div class="metric">
+                                    <span class="label">pH Level</span>
+                                    <span class="value">6.5</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card weather-status">
+                        <div class="card-icon">
+                            <i class="fas fa-cloud-sun"></i>
+                        </div>
+                        <div class="card-info">
+                            <h3>Weather</h3>
+                            <div class="weather-info">
+                                <p class="temperature">28°C</p>
+                                <p class="condition">Partly Cloudy</p>
+                                <p class="forecast">Next 24h: Light Rain</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card irrigation-status">
+                        <div class="card-icon">
+                            <i class="fas fa-faucet"></i>
+                        </div>
+                        <div class="card-info">
+                            <h3>Irrigation Status</h3>
+                            <div class="irrigation-info">
+                                <p class="status active">System Active</p>
+                                <p class="water-usage">Water Usage: 250L/hr</p>
+                                <p class="next-schedule">Next: 6:00 AM</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card alerts-summary">
+                        <div class="card-icon">
+                            <i class="fas fa-exclamation-circle"></i>
+                        </div>
+                        <div class="card-info">
+                            <h3>Active Alerts</h3>
+                            <div class="alerts-list">
+                                <div class="alert-item">Low Soil Moisture</div>
+                                <div class="alert-item">pH Level High</div>
+                                <div class="alert-item">Weather Alert</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts Section -->
+                <div class="charts-section">
+                    <div class="chart-container soil-trends">
+                        <h3>Soil Condition Trends</h3>
+                        <div class="chart-controls">
+                            <button class="active">Week</button>
+                            <button>Month</button>
+                            <button>Year</button>
+                        </div>
+                        <div class="chart" id="soilTrendsChart"></div>
+                    </div>
+                    <div class="chart-container water-usage">
+                        <h3>Water Usage Analytics</h3>
+                        <div class="chart-controls">
+                            <button class="active">Daily</button>
+                            <button>Weekly</button>
+                            <button>Monthly</button>
+                        </div>
+                        <div class="chart" id="waterUsageChart"></div>
+                    </div>
+                </div>
+
+                <!-- Control Panel -->
+                <div class="control-panel">
+                    <h3>System Controls</h3>
+                    <div class="controls-grid">
+                        <div class="control-card irrigation-control">
+                            <h4>Irrigation Control</h4>
+                            <div class="control-options">
+                                <button class="control-btn start">Start Irrigation</button>
+                                <button class="control-btn stop">Stop Irrigation</button>
+                                <button class="control-btn schedule">Set Schedule</button>
+                            </div>
+                        </div>
+                        <div class="control-card fertilizer-control">
+                            <h4>Fertilizer Planning</h4>
+                            <div class="fertilizer-schedule">
+                                <p>Next Application: July 15, 2023</p>
+                                <p>Recommended: NPK 14-14-14</p>
+                                <button class="control-btn">View Full Schedule</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>
-        <section id="contact" class="dark-section">
-            <div class="container">
-                <h2>Contact Us</h2>
-                <p>Email: info@farmcs.com</p>
-                <p>Phone: +91 12345 67890</p>
-            </div>
-        </section>
-    </main>
-    <footer>
-        <div class="container">
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="dashboard-footer">
+        <div class="footer-links">
+            <a href="#contact">Contact</a>
+            <a href="#help">Help Center</a>
+            <a href="#privacy">Privacy Policy</a>
+        </div>
+        <div class="footer-copyright">
             <p>&copy; 2024 FarmCS. All rights reserved.</p>
         </div>
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
