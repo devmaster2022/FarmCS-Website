@@ -95,3 +95,73 @@ function addAlert(type, message, time) {
     
     alertList.appendChild(alert);
 }
+
+// Sidebar Toggle Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const sidebarToggle = document.getElementById('sidebarToggle');
+    const sidebar = document.querySelector('.sidebar');
+    const mainContent = document.querySelector('.main-content');
+
+    if (sidebarToggle && sidebar) {
+        // Toggle sidebar on button click
+        sidebarToggle.addEventListener('click', function() {
+            sidebar.classList.toggle('active');
+        });
+
+        // Close sidebar when clicking outside on mobile
+        document.addEventListener('click', function(event) {
+            const isClickInsideSidebar = sidebar.contains(event.target);
+            const isClickOnToggle = sidebarToggle.contains(event.target);
+            
+            if (!isClickInsideSidebar && !isClickOnToggle && window.innerWidth <= 991) {
+                sidebar.classList.remove('active');
+            }
+        });
+
+        // Handle window resize
+        let resizeTimer;
+        window.addEventListener('resize', function() {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(function() {
+                if (window.innerWidth > 991) {
+                    sidebar.classList.remove('active');
+                    mainContent.style.marginLeft = '';
+                }
+            }, 250);
+        });
+    }
+
+    // Initialize any charts or data visualization
+    initializeCharts();
+});
+
+// Function to initialize charts (if needed)
+function initializeCharts() {
+    // Add chart initialization code here
+}
+
+// Handle theme switching (if implemented)
+function toggleTheme() {
+    document.body.classList.toggle('dark-theme');
+    localStorage.setItem('theme', document.body.classList.contains('dark-theme') ? 'dark' : 'light');
+}
+
+// Check saved theme preference
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme) {
+    document.body.classList.toggle('dark-theme', savedTheme === 'dark');
+}
+
+// Handle smooth scrolling for internal links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+});
